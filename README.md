@@ -1,0 +1,2 @@
+# ReceiptPrinter
+be happy
