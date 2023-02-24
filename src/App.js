@@ -1,14 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import CustermoInput from "./compoments/CustermoInput";
-import Printer from "./compoments/Printer";
+//import "./App.css";
+import CustermoInput from "./compoments/customerInput/CustermoInput";
 import config from "./config/config";
-import XPrinter from "./compoments/XPrinter";
-import Success from "./compoments/Success";
-import Welcome from "./compoments/Welcome";
-import Failed from "./compoments/Failed";
+// import Success from "./compoments/Success";
+import Welcome from "./compoments/welcome/Welcome";
+import Failed from "./compoments/failed/Failed";
 import { useState } from "react";
+
 const pageRouter = {
   changeRoute: () => {},
 };
@@ -27,19 +25,13 @@ function App() {
     console.log(target);
     switch (target.id) {
       case config.pages.home:
-        Compoment = CustermoInput;
-        break;
-      case config.pages.printList:
-        Compoment = Printer;
+        Compoment = Welcome;
         break;
       case config.pages.input:
         Compoment = CustermoInput;
         break;
       case config.pages.welcome:
         Compoment = Welcome;
-        break;
-      case config.pages.success:
-        Compoment = Success;
         break;
       case config.pages.failed:
         Compoment = Failed;
@@ -56,7 +48,9 @@ function App() {
       <header className="App-header">
         <div>
           <PageRouterContext.Provider value={changeRoute}>
+            {/* <Provider store={store}> */}
             <Compoment></Compoment>
+            {/* </Provider> */}
           </PageRouterContext.Provider>
         </div>
       </header>

@@ -71,3 +71,17 @@ export const sleep = async (time) => {
   }
   return "";
 };
+
+export const getSNfromServer = async () => {
+  let opts = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  let result = await getPrintListValidation(
+    await fetchRequest(config.url.getSN, opts, true)
+  );
+  console.log(result);
+  return result;
+};

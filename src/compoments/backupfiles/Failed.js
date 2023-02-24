@@ -26,5 +26,13 @@ export default function Failed() {
       </div>
     );
   };
-  return <div> {resultData()}</div>;
+  return (
+    <div>
+      <div className="welcomeBackground">
+        <button className="wishButton" onClick={checkPlay}>
+          我要许愿
+        </button>
+      </div>
+    </div>
+  );
 }

@@ -2,6 +2,14 @@ const config = {
   url: {
     save: "http://localhost:8080/setWish",
     getlist: "http://localhost:8080/getWish",
+    getSN: "http://localhost:3001/sn",
+  },
+
+  wxurl: {
+    // access_token: "https://api.weixin.qq.com/sns/oauth2/access_token?",
+    access_token: "/test/sns/oauth2/access_token?",
+    re_access_token: "/test/sns/oauth2/refresh_token?",
+    userinfo: "/test/sns/userinfo?",
   },
 
   pages: {
@@ -16,7 +24,7 @@ const config = {
   xpyun: {
     apis: {
       getPrinter: {
-        url: "/api/openapi/ddPrinters",
+        url: "/openapi/ddPrinters",
         method: "POST",
       },
       printRecept: {
@@ -24,7 +32,7 @@ const config = {
         method: "POST",
       },
       getSN: {
-        url: "/api/openapi/xprinter/queryOrderStatis",
+        url: "/openapi/xprinter/queryOrderStatis",
         method: "POST",
       },
     },

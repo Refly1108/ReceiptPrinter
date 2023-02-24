@@ -7,4 +7,12 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
+  app.use(
+    createProxyMiddleware("/test", {
+      target: "https://api.weixin.qq.com",
+      changeOrigin: true,
+      pathRewrite: { "^/test": "" },
+    })
+  );
 };

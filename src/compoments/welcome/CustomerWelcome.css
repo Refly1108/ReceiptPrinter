@@ -1,0 +1,24 @@
+.welcomeBackground {
+  background-image: url("../../resource/Wish4.png");
+  position: absolute;
+  width: 390px;
+  height: 756.92px;
+}
+.welcomeBackground .wishButton {
+  box-sizing: border-box;
+  position: absolute;
+  width: 286px;
+  height: 50px;
+  left: 52px;
+  top: 600px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #333333;
+  border-radius: 10px;
+  font-family: "PingFang HK";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #333333;
+}

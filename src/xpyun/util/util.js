@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { getSN } from "..";
+import { getSNfromServer } from "../../fetch/index";
 
 /**
  * 哈稀签名
@@ -53,18 +54,18 @@ export const generateSign = (user, userKey, timestamp) => {
 };
 
 export const generateContext = async (data) => {
-  let sn = await getSN();
+  // let result = await getSNfromServer();
 
   let printContent = "<CB>Revive & Thrive<BR>";
   printContent = printContent + "<N><C>2023 壹.零 Annual Dinner<BR>";
   printContent = printContent + "<BR><BR>";
   printContent = printContent + "<N><C>欢迎" + data.name + ",<BR>";
-  printContent = printContent + "<N><C>第" + sn + "个拥抱未来的壹.零er<BR>";
+  printContent = printContent + "<N><C>第" + +"个拥抱未来的壹.零er<BR>";
   printContent = printContent + "<BR><BR>";
   printContent = printContent + "<L><N>--------------------------------<BR>";
   printContent = printContent + "<N><C>你的心愿<BR>";
   printContent = printContent + "<BR><BR>";
-  printContent = printContent + "<N><C>年年既欢喜<BR>";
+  printContent = printContent + "<N><C>" + data.text + "<BR>";
   printContent = printContent + "<N><C>岁岁同喜庆<BR>";
   printContent = printContent + "<BR><BR>";
   printContent = printContent + "<N><R>2023年3月10日<BR>";
@@ -114,4 +115,15 @@ export const generateContext = async (data) => {
   // printContent = printContent + "<C><BARCODE>9884822189</BARCODE></C>";
   //printContent = printContent + "<C><QR>https://www.xpyun.net</QR></C>";
   return printContent;
+};
+export const getQueryString = (name) => {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+
+  var r = window.location.search.substr(1).match(reg);
+  console.log(r);
+  if (r != null) {
+    return unescape(r[2]);
+  }
+
+  return null;
 };

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { postToServer } from "../fetch/index";
-import { PageRouterContext } from "../App";
-import config from "../config/config";
+import { postToServer } from "../../fetch/index";
+import { PageRouterContext } from "../../App";
+import config from "../../config/config";
 export default function CustermoInputold(proprs) {
   const [name, setName] = useState("1");
   const [staff, setStaff] = useState("1");

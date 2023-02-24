@@ -13,8 +13,7 @@ export default function CustermoInput() {
   const submit = async () => {
     setProcess(true);
     let result = await PrinterData({
-      staffId: staff,
-      name: name,
+      name: "userinfoStore.name",
       text: text,
     });
     if (result) {
@@ -39,23 +38,7 @@ export default function CustermoInput() {
         ></input>{" "}
         祝福
         <br></br>
-        <input
-          type="text"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-          value={name}
-        ></input>{" "}
-        name
         <br></br>
-        <input
-          type="text"
-          onChange={(e) => {
-            setStaff(e.target.value);
-          }}
-          value={staff}
-        ></input>{" "}
-        staff id
         <br></br>
         <button onClick={submit}>开始打印</button>
       </div>
