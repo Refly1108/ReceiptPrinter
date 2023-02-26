@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { printerReceipt } from "../../printer";
+import { printerReceipt } from "../../printer/index";
 import { getPrintListFromServer, postToServer, sleep } from "../../fetch/index";
 import { useEffect } from "react";
+import { getRandomWish, getparams } from "../../xpyun/util/util";
 let stop = false;
-export default function Printer() {
+export default function PrintJob() {
   const [printResult, setPrintResult] = useState(0);
   const [process, setProcess] = useState(false);
   const [printeList, setPrinteList] = useState([]);
@@ -23,12 +24,16 @@ export default function Printer() {
       setNetworkIssue(true);
     }
   };
-  const submit = async () => {
-    const result = await postToServer({
-      staffName: new Date().toISOString(),
-      staffId: "staff",
-      wish: "text",
-    });
+  const submit = () => {
+    // await postToServer({
+    //   name: "Refly",
+    //   text: getRandomWish(),
+    // });
+    let a = getparams(
+      "https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index",
+      "action"
+    );
+    setProcess(false);
   };
   const stopPrint = () => {
     stop = true;
@@ -39,34 +44,54 @@ export default function Printer() {
     let array = list;
     while (array.length > 0) {
       setPrinteList([...array]);
-      setCurrentJob(array[array.length - 1].name);
-      //let result = await printerReceipt(array[array.length - 1]);
-      // await sleep(2000);
-      let result = true;
-      if (result) {
+      setCurrentJob(array[array.length - 1].staffName);
+      let result = await printerReceipt(array[array.length - 1]);
+      await sleep(2000);
+      result = true;
+      if (result.error == 0) {
         array.pop();
-        //setPrinteList(array);
+        setPrinteList(array);
       } else {
         stop = true;
         setPrinterIssue(true);
         break;
       }
     }
-    // if (!stop) {
-    //   await getPrintList();
-    // }
-    setPrinteList(array);
-    setCurrentJob("");
+    if (!stop) {
+      await getPrintList();
+    }
     setProcess(false);
   };
+  const startJob = async () => {
+    let result = await getPrintListFromServer();
+    if (result.length > 0) {
+      await executeJob(result);
+    } else {
+      console.log("currently no job list");
+    }
 
-  useEffect(() => {
-    //use changed
-    console.log(printeList);
-  }, [printeList]);
-  const printing = () => {
-    return <div>job start....</div>;
+    console.log(result);
   };
+  const executeJob = async (list) => {
+    console.log(list.length);
+    let array = list;
+    setPrinteList([...array]);
+
+    while (array.length > 0) {
+      setCurrentJob(array[0].name);
+
+      // await printerReceipt(array[0]);
+      await sleep(2000);
+      console.log(array[0].text);
+      array.shift();
+      setPrinteList([...array]);
+      // console.log(array[0].name);
+    }
+  };
+  // useEffect(() => {
+  //   //use changed
+  //   console.log(printeList);
+  // }, [printeList]);
 
   const jobList = () => {
     return (
@@ -77,30 +102,26 @@ export default function Printer() {
             return (
               <ul>
                 {value.name}
-                {/* {value.wish} */}
+                {value.text}
               </ul>
             );
           })}
         </ol>
-        {process ? <div>current job for {currentJob}</div> : ""}
+        <div>current job for {currentJob}</div>
       </div>
     );
   };
   const getStart = () => {
     return (
       <div>
-        <form>
-          <button onClick={getPrintList}>start Print Job</button>
-        </form>
+        <button onClick={startJob}>start Print Job</button>
       </div>
     );
   };
   const getStop = () => {
     return (
       <div>
-        <form>
-          <button onClick={stopPrint}>stop Print Job</button>
-        </form>
+        <button onClick={stopPrint}>stop Print Job</button>
       </div>
     );
   };
@@ -120,17 +141,12 @@ export default function Printer() {
   };
   return (
     <div>
-      <div>{jobList()}</div>
-      <div>{networkIssue ? networkAlert() : ""}</div>
-      <div>{printerIssue ? printerAlert() : ""}</div>
-      <div>{process ? printing() : getStart()}</div>
-      <div>{getStop()}</div>
+      {/* <div>{jobList()}</div>
+
+      <div>{getStart()}</div>
+      <div>{getStop()}</div> */}
       <div>
-        {
-          <form>
-            <button onClick={submit}>add</button>
-          </form>
-        }
+        <button onClick={submit}>add</button>
       </div>
     </div>
   );

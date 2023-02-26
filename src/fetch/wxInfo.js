@@ -1,7 +1,7 @@
 import config from "../config/config";
 import { fetchRequest } from "../fetch";
 const APPID = "wxa8f21527ef5c97c6";
-const SECRET = "862ad37da685546569e605ae6741588d";
+const SECRET = "6c605ebc9bd0faf042098b49011ed60c";
 const GRANT_TYPE = "authorization_code";
 
 //scope为snsapi_base：
@@ -24,6 +24,8 @@ export const getAccess_token = async (code) => {
     },
   };
   let result = await fetchRequest(url, opts, true);
+  console.log(getAccess_token);
+  console.log(result);
   let userInfo = await getUserinfo(result);
   // console.log(result);
   //let userInfo = {};
@@ -59,5 +61,6 @@ export const getUserinfo = async (token) => {
   };
 
   let useinfo = await fetchRequest(url, opts, true);
+  console.log(useinfo);
   return useinfo;
 };

@@ -4,16 +4,30 @@ import { useEffect } from "react";
 import config from "../../config/config";
 import { getAccess_token } from "../../fetch/wxInfo";
 import { PageRouterContext } from "../../App";
-import { getQueryString } from "../../xpyun/util/util";
+import {
+  getQueryString,
+  getRandomWish,
+  subWish,
+  getWishArray,
+} from "../../xpyun/util/util";
 import "./CustomerWelcome.css";
-export default function Welcome() {
+import { drawLogo, drawLogo2 } from "../../printer/index";
+import wishs from "../../config/wishs";
+export default function Welcome(props) {
   const changeRoute = useContext(PageRouterContext);
 
   const navigateTo = (changeRoute, id) => {
     changeRoute({ id: id });
   };
   const checkPlay = async () => {
+    // await drawLogo();
+    // await drawLogo2();
+    // console.log(getWishArray(wishs.en[1]));
+    // console.log(getWishArray(wishs.en[2]));
+    // console.log(getWishArray(wishs.en[3]));
+    // console.log(getWishArray(wishs.en[4]));
     let useinfo = await getAccess_token(getQueryString("code"));
+    props.setUsername("Refly");
     navigateTo(changeRoute, config.pages.input);
   };
 

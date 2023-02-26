@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { PrinterData } from "../../xpyun/index";
+import { printerReceipt } from "../../printer/index";
 import { PageRouterContext } from "../../App";
 import config from "../../config/config";
+import { postToServer } from "../../fetch/index";
 import "./CustomerInput.css";
-export default function CustermoInput() {
+import { getRandomWish } from "../../xpyun/util/util";
+export default function CustermoInput(props) {
   const [name, setName] = useState("");
   const [staff, setStaff] = useState("");
-  const [text, setText] = useState("");
+  const [text, setText] = useState(getRandomWish());
   const [printResult, setPrintResult] = useState(false);
   const [process, setProcess] = useState(false);
   const changeRoute = useContext(PageRouterContext);
@@ -50,10 +53,20 @@ export default function CustermoInput() {
   //jay
   const submit = async () => {
     setProcess(true);
-    let result = await PrinterData({
-      name: "userinfoStore.name",
-      text: text,
-    });
+    let result;
+    if (config.networkprinter) {
+      result = await PrinterData({
+        name: props.username,
+        text: text,
+      });
+    } else {
+      result = await postToServer({
+        name: props.username,
+        text: text,
+      });
+    }
+
+    // let result = await printerReceipt(text);
     if (result) {
       finishPrintingWish();
     } else {
@@ -89,7 +102,13 @@ export default function CustermoInput() {
   return (
     <div className="inputBackground">
       <div className="inputWishTitle">请输入你的愿望</div>
-      <textarea className="inputWishDiv"></textarea>
+      <textarea
+        className="inputWishDiv"
+        onChange={(e) => {
+          setText(e.target.value);
+        }}
+        value={text}
+      ></textarea>
       <div className="flower"></div>
       <button className="printWish" onClick={printWish}>
         打印愿望

@@ -2,7 +2,8 @@ import React from "react";
 //import "./App.css";
 import CustermoInput from "./compoments/customerInput/CustermoInput";
 import config from "./config/config";
-// import Success from "./compoments/Success";
+import PrintJob from "./compoments/printjob/PrintJob";
+import Printer from "./compoments/backupfiles/Printer";
 import Welcome from "./compoments/welcome/Welcome";
 import Failed from "./compoments/failed/Failed";
 import { useState } from "react";
@@ -14,10 +15,12 @@ export const PageRouterContext = React.createContext(pageRouter);
 
 function App() {
   const [target, setTaget] = useState({ id: "", data: {} });
+  const [username, setUsername] = useState("11111");
   const changeRoute = (route) => {
     setTaget((target) => ({
       ...route,
     }));
+    // setUsername(name);
   };
 
   let Compoment = null;
@@ -43,13 +46,17 @@ function App() {
   };
 
   setPage();
+
   return (
     <div className="App">
       <header className="App-header">
         <div>
           <PageRouterContext.Provider value={changeRoute}>
             {/* <Provider store={store}> */}
-            <Compoment></Compoment>
+            <Compoment
+              username={username}
+              setUsername={setUsername}
+            ></Compoment>
             {/* </Provider> */}
           </PageRouterContext.Provider>
         </div>

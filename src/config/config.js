@@ -1,15 +1,22 @@
 const config = {
   url: {
-    save: "http://localhost:8080/setWish",
-    getlist: "http://localhost:8080/getWish",
+    save: "http://39.108.114.45:3001/saveprdata/",
+    getlist: "http://39.108.114.45:3001/getlist",
     getSN: "http://localhost:3001/sn",
   },
-
+  networkprinter: true,
   wxurl: {
     // access_token: "https://api.weixin.qq.com/sns/oauth2/access_token?",
     access_token: "/test/sns/oauth2/access_token?",
     re_access_token: "/test/sns/oauth2/refresh_token?",
     userinfo: "/test/sns/userinfo?",
+  },
+
+  epson: { ip: "192.168.8.101" },
+  lineNum: 50,
+  pics: {
+    headers: { width: 597, height: 532 },
+    boot: { width: 598, height: 578 },
   },
 
   pages: {
@@ -28,6 +35,7 @@ const config = {
         method: "POST",
       },
       printRecept: {
+        //https://open.xpyun.net/api/openapi/xprinter/addPrinters
         url: "/api/openapi/xprinter/print",
         method: "POST",
       },
