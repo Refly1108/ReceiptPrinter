@@ -15,7 +15,7 @@ export const PageRouterContext = React.createContext(pageRouter);
 
 function App() {
   const [target, setTaget] = useState({ id: "", data: {} });
-  const [username, setUsername] = useState("11111");
+  const [username, setUsername] = useState("");
   const changeRoute = (route) => {
     setTaget((target) => ({
       ...route,

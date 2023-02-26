@@ -48,19 +48,29 @@ export const getAccess_token = async (code) => {
   return result;
 };
 
-export const getUserinfo = async (token) => {
-  let url = config.wxurl.userinfo;
-  url = url + "access_token=" + token.access_token;
-  url = url + "&openid=" + token.openid;
-  url = url + "&lang=zh_CN";
+export const getUserinfo = async (code) => {
+  let url = config.url.getuserinfo + code;
+
   let opts = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   };
-
+  // let useinfo = {
+  //   openid: "oiQx86PdwbZP58XdDSOPVN1xOoFg",
+  //   nickname: "Refly_YAN",
+  //   sex: 0,
+  //   language: "",
+  //   city: "",
+  //   province: "",
+  //   country: "",
+  //   headimgurl:
+  //     "https://thirdwx.qlogo.cn/mmopen/vi_32/FERlb0lET4gia7HyxqLmFMCBCpCSV3FJZaWw41Ud8t6vD3ib0mUBwEMpXicDwJuUTMtfQDjCTmF1TmeEH6Nibj1XkQ/132",
+  //   privilege: [],
+  // };
   let useinfo = await fetchRequest(url, opts, true);
+
   console.log(useinfo);
   return useinfo;
 };

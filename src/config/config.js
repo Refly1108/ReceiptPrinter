@@ -3,8 +3,16 @@ const config = {
     save: "http://39.108.114.45:3001/saveprdata/",
     getlist: "http://39.108.114.45:3001/getlist",
     getSN: "http://localhost:3001/sn",
+    getuserinfo: "http://39.108.114.45:3001/gettoken/",
   },
   networkprinter: true,
+  wxurl: {
+    // access_token: "https://api.weixin.qq.com/sns/oauth2/access_token?",
+    access_token: "/test/sns/oauth2/access_token?",
+    re_access_token: "/test/sns/oauth2/refresh_token?",
+    userinfo: "/test/sns/userinfo?",
+  },
+
   wxurl: {
     // access_token: "https://api.weixin.qq.com/sns/oauth2/access_token?",
     access_token: "/test/sns/oauth2/access_token?",

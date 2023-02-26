@@ -79,16 +79,14 @@ export const sleep = async (time) => {
   return "";
 };
 
-export const getSNfromServer = async () => {
-  let opts = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  let result = await getPrintListValidation(
-    await fetchRequest(config.url.getSN, opts, true)
-  );
+export const getuserinfo = async (result) => {
+  console.log("getPrintListValidation");
   console.log(result);
-  return result;
+  let array = [];
+  if (result.status == 0) {
+    for (let index = 0; index < result.data.list.length; index++) {
+      array.push(JSON.parse(result.data.list[index]));
+    }
+  }
+  return array;
 };
