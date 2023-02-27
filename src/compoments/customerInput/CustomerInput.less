@@ -1,31 +1,39 @@
 .inputBackground {
-  background-image: url("../../resource/background3.png");
-  position: absolute;
-  width: 390px;
-  height: 756.92px;
+  background-image: url("../../resource/main.png");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   .inputWishTitle {
+    /* 请输入你的愿望 */
+
+
     position: absolute;
-    width: 140px;
+    padding-left: 13vw;
+    width: 200px;
     height: 28px;
-    padding-top: 200px;
-    padding-left: 120px;
-    font-family: "PingFang HK";
+    padding-top: 26vh;
+
+    font-family: 'PingFang SC';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
     line-height: 28px;
-    text-align: center;
-    color: #729e2d;
+    /* identical to box height */
+
+    color: #0F3A60;
   }
 
-  .inputWishDiv {
+  textarea {
     box-sizing: border-box;
     position: absolute;
-    width: 286px;
-    height: 300px;
-    margin-top: 240px;
-    margin-left: 52px;
+    width: 74vw;
+    height: 30vh;
+    resize: none;
+    //margin-top: 240px;
+    margin-top: 31vh;
+    margin-left: 13vw;
     background: rgba(255, 255, 255, 0.74);
     border: 1px solid #fbd632;
     border-radius: 10px;
@@ -34,19 +42,76 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
+    scrollbar-width: none;
+    overflow: hidden;
     color: #444444;
+    max-height: calc(1.5em * 8);
   }
 
-  .printWish {
-    box-sizing: border-box;
+
+  // .inputWishDiv {
+  //   box-sizing: border-box;
+  //   position: absolute;
+  //   width: 286px;
+  //   height: 235px;
+  //   resize: none;
+  //   margin-top: 240px;
+  //   margin-left: 52px;
+  //   background: rgba(255, 255, 255, 0.74);
+  //   border: 1px solid #fbd632;
+  //   border-radius: 10px;
+  //   font-family: "PingFang HK";
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   font-size: 20px;
+  //   line-height: 28px;
+  //   color: #444444;
+
+  // }
+
+  .wordinglimit {
+    /* 9/64 */
     position: absolute;
-    width: 286px;
-    height: 50px;
-    left: 52px;
-    top: 550px;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1.5px solid #333333;
-    border-radius: 10px;
+    width: 34px;
+    height: 19px;
+    right: 16vw;
+    top: 55vh;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    //text-align: center;
+    color: #0F3A60;
+  }
+
+
+  .ChatGPTbtn {
+    /* 没有头绪？问问ChatGPT吧 */
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    margin-left: 13vw;
+    bottom: 35vh;
+    font-family: 'PingFang HK';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height */
+    text-decoration-line: underline;
+    color: #0F3A60;
+  }
+
+  .ChatGPTbtn:hover {
+    text-decoration: underline;
   }
 
   .flower {
@@ -59,12 +124,47 @@
     left: 20px;
   }
 
+
+  .printWish {
+    box-sizing: border-box;
+    position: absolute;
+    width: 74vw;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 13vw;
+    bottom: 23vh;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1.5px solid #333333;
+    border-radius: 10px;
+
+    .btnPrintWording {
+
+      /* 打印愿望 */
+
+      width: 100px;
+      height: 25px;
+
+      font-family: 'PingFang HK';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 25px;
+      text-align: center;
+
+      color: #0F3A60;
+    }
+  }
+
   .back {
     position: absolute;
     width: 36px;
     height: 25px;
-    left: 177px;
-    top: 620px;
+    bottom: 16vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: "PingFang HK";
     font-style: normal;
     font-weight: 400;
@@ -72,6 +172,7 @@
     line-height: 25px;
     text-align: center;
     color: #333333;
+
   }
 
   .mask {
@@ -281,5 +382,297 @@
       color: #ffffff;
     }
 
+  }
+
+  .pop4 {
+    width: 80%;
+    overflow: hidden;
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 8px;
+    background-color: #fff;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+
+    /* Rectangle 14 */
+    width: 323px;
+    height: 330px;
+    // left: 44px;
+    // top: 425px;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+    .title {
+      background-image: url("../../resource/Group4.png");
+      background-size: 100% 100%;
+      width: 162px;
+      height: 77px;
+      line-height: 57px;
+      text-align: center;
+      font-size: 18px;
+      margin-left: 70px;
+      margin-top: 70px;
+    }
+
+    .randomWish {
+      text-align: center;
+      margin: 0 auto;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 36px;
+      /* or 180% */
+
+      text-align: center;
+
+      color: #333333;
+      line-height: 20px;
+      text-align: center;
+      height: 72px;
+      width: 160px;
+      padding-top: 40px;
+      padding-left: 21px;
+      padding-right: 21px;
+    }
+
+    .ChatGPTArea {
+      position: absolute;
+      width: 283px;
+      height: 120px;
+      left: 50px;
+      top: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px;
+      //border: 1px solid #ccc;
+
+      text-align: center;
+      max-width: 225px;
+      max-height: 4.3em;
+      font-size: 20px;
+      font-family: 'PingFang HK';
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      color: #333333;
+
+
+
+
+
+      // position: absolute;
+      // left: -0.03%;
+      // right: 51.37%;
+      // top: 27.16%;
+      // bottom: 15.45%;
+
+      // background: radial-gradient(40.84% 37.36% at 54.03% 54.53%, #8FBC72 0%, #7BC39C 100%);
+      // transform: rotate(-31.11deg);
+
+
+      // .leaf_right {
+
+      //   /* Vector */
+
+
+      //   position: absolute;
+      //   left: 38.05%;
+      //   right: 14.71%;
+      //   top: 45.2%;
+      //   bottom: 9.95%;
+
+      //   background: linear-gradient(90deg, #7BBF89 0.64%, #7BBF89 7.31%, #9EC78D 93.08%, #9EC78D 95.94%);
+      //   transform: rotate(-31.11deg);
+
+      // }
+
+      // .leaf_down {
+      //   /* Vector */
+
+
+      //   position: absolute;
+      //   left: 38.04%;
+      //   right: 45.63%;
+      //   top: 54.85%;
+      //   bottom: 0%;
+
+      //   background: radial-gradient(277.09% 108.14% at 37.09% 144.77%, #8FBC72 0%, #A5CB88 52%, #A5CB88 100%);
+      // }
+
+
+      .ChatGPTText {
+        position: absolute;
+        text-align: center;
+        max-width: 225px;
+        max-height: 4.3em;
+        font-size: 15px;
+        font-family: 'PingFang HK';
+
+        line-height: 1.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #333333;
+        // line-height: 1.5;
+        // max-width: 225px;
+        /* 15个字 x 15像素/字 = 225像素 */
+        /* 祝你一切顺利，幸福快乐！ */
+
+
+        // position: absolute;
+        // width: 271px;
+        // height: 36px;
+        // left: 61px;
+        // top: 453px;
+
+        // font-family: 'PingFang HK';
+        // font-style: normal;
+        // font-weight: 400;
+        // font-size: 20px;
+        // line-height: 36px;
+        // /* identical to box height, or 180% */
+
+        // color: #333333;
+
+
+      }
+    }
+
+
+
+    .useitBtn {
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 16px;
+      line-height: 46px;
+      width: 271px;
+      //width: 70vw;
+      height: 50px;
+      margin-top: 180px;
+      margin-left: 26px;
+      left: 0vw;
+      border-radius: 10px;
+      background: #0F3A60;
+
+      font-family: "Roboto";
+      font-style: normal;
+      line-height: 23px;
+      font-weight: 400;
+
+      /* Rectangle 15 */
+      .useItWording {
+        /* 使用心愿 */
+
+        //position: absolute;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 200;
+        font-size: 20px;
+        line-height: 19px;
+        /* identical to box height */
+
+        color: #FFFFFF;
+      }
+
+    }
+
+    .anotherBtn {
+      //position: absolute;
+      line-height: 23px;
+      margin-top: 25px;
+      text-align: center;
+
+      //left: auto;
+      //top: 220px;
+
+      .anotherWording {
+
+        /* 换一个 */
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 19px;
+        /* identical to box height */
+
+        color: #0F3A60;
+      }
+    }
+
+  }
+
+  .leaf {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .leaf img {
+    position: absolute;
+    text-align: center;
+    top: 6vh;
+    left: 50%;
+    transform: translate(260%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+
+
+  .signing {
+    /*container区域*/
+    display: flex;
+    /* 使用flex布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+
+
+    .madeBy {
+      /*文字区域*/
+      position: absolute;
+      font-size: 11pt;
+      left: 20vw;
+      text-align: center;
+      //display: block;
+      width: 130px;
+
+      //padding-right: 5vw;
+      bottom: 7vh;
+
+    }
+
+    .logo {
+      /*logo区域*/
+      background-image: url("../../resource/logo1.0.png");
+      position: absolute;
+      background-repeat: no-repeat;
+      //background-size: 100% 50%;
+      width: 20vw;
+      left: 56vw;
+      height: 25px;
+      bottom: 7vh;
+
+    }
+
+  }
+
+  .close-button {
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    font-size: 20px;
+    top: 1vh;
+    right: 1vw;
   }
 }

@@ -16,7 +16,7 @@ export default function Failed() {
     <div>
       <div className="FaildedBackground">
         <button className="wishButton" onClick={retry}>
-          Printer Issu 再试试吧
+          打印机故障，请稍后再试！
         </button>
       </div>
     </div>

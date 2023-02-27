@@ -1,15 +1,27 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { PrinterData } from "../../xpyun/index";
-import { printerReceipt } from "../../printer/index";
 import { PageRouterContext } from "../../App";
 import config from "../../config/config";
-import { postToServer } from "../../fetch/index";
 import "./CustomerInput.css";
+import ChatGPT from "../ChatGPT";
+import leaf from "../../resource/leaf.PNG";
+import { postToServer } from "../../fetch/index";
+import leaf_right from "../../resource/leaf_right.png";
+import leaf_down from "../../resource/leaf_down.png";
+import RandomWishSelector from "../ChatGPT/components/RandomWishSelect";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@material-ui/core";
 import { getRandomWish } from "../../xpyun/util/util";
 export default function CustermoInput(props) {
   const [name, setName] = useState("");
   const [staff, setStaff] = useState("");
-  const [text, setText] = useState(getRandomWish());
+  const [text, setText] = useState("");
   const [printResult, setPrintResult] = useState(false);
   const [process, setProcess] = useState(false);
   const changeRoute = useContext(PageRouterContext);
@@ -18,6 +30,48 @@ export default function CustermoInput(props) {
   const [displayPrintFirst, setDisplayPrintFirst] = useState(false);
   const [displayPrintSecond, setDisplayPrintSecond] = useState(false);
   const [displayPrintThird, setDisplayPrintThird] = useState(false);
+
+  //Add for chatGPT
+  const [displayPrintForth, setDisplayPrintForth] = useState(false);
+  const [ChatGPTdata, setChatGPTData] = useState();
+  const selectedData = "祝福你的人生充满爱、和平和幸福！";
+
+  //字数统计
+  // const [inputWishValue, setInputWishValue] = useState('');
+
+  const MAX_LENGTH = 64;
+  function inputWish(event) {
+    let newText = event.target.value;
+    if (newText.length <= MAX_LENGTH) {
+      setText(newText);
+    }
+    console.log(newText);
+  }
+
+  //ChatGPT
+  function ChatGPTSelect() {
+    let wish = getRandomWish();
+    setChatGPTData(wish);
+    setText(wish);
+
+    console.log("selectedData:" + selectedData);
+    console.log("ChatGPTdata:" + ChatGPTdata);
+
+    return <ChatGPTDiv selectedData={selectedData} />;
+  }
+
+  function ChatGPTDiv(props) {
+    return <div>{props.selectedData}</div>;
+  }
+
+  function CloseButton(props) {
+    return (
+      <button className="close-button" onClick={props.onClick}>
+        X
+      </button>
+    );
+  }
+
   //
   const printWish = () => {
     setDisplayMask(true);
@@ -25,6 +79,7 @@ export default function CustermoInput(props) {
     setDisplayPrintSecond(false);
     setDisplayPrintThird(false);
     //打印逻辑
+    setDisplayPrintForth(false);
   };
 
   const printingWish = async () => {
@@ -33,6 +88,7 @@ export default function CustermoInput(props) {
     setDisplayPrintSecond(true);
     setDisplayPrintThird(false);
     // 打印中，跳转暂时设置5秒
+    setDisplayPrintForth(false);
     await submit();
   };
 
@@ -41,6 +97,7 @@ export default function CustermoInput(props) {
     setDisplayPrintFirst(false);
     setDisplayPrintSecond(false);
     setDisplayPrintThird(true);
+    setDisplayPrintForth(false);
   };
 
   const closePrinting = () => {
@@ -48,9 +105,23 @@ export default function CustermoInput(props) {
     setDisplayPrintFirst(false);
     setDisplayPrintSecond(false);
     setDisplayPrintThird(false);
+    setDisplayPrintForth(false);
     //打印逻辑
   };
+
+  const ChatGPTPrint = () => {
+    setDisplayMask(true);
+    setDisplayPrintFirst(false);
+    setDisplayPrintSecond(false);
+    setDisplayPrintThird(false);
+    setDisplayPrintForth(true);
+    ChatGPTSelect();
+    //setChatGPTData(selectedData);
+    //打印逻辑
+  };
+
   //jay
+
   const submit = async () => {
     setProcess(true);
     let result;
@@ -73,28 +144,10 @@ export default function CustermoInput(props) {
       navigateTo(changeRoute, config.pages.failed);
     }
   };
-
   const navigateTo = (changeRoute, id) => {
     changeRoute({ id: id });
   };
-  const inputData = () => {
-    return (
-      <div>
-        <input
-          type="text"
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-          value={text}
-        ></input>{" "}
-        祝福
-        <br></br>
-        <br></br>
-        <br></br>
-        <button onClick={submit}>开始打印</button>
-      </div>
-    );
-  };
+
   const home = () => {
     navigateTo(changeRoute, config.pages.welcome);
   };
@@ -102,20 +155,43 @@ export default function CustermoInput(props) {
   return (
     <div className="inputBackground">
       <div className="inputWishTitle">请输入你的愿望</div>
-      <textarea
-        className="inputWishDiv"
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
-        value={text}
-      ></textarea>
+      {/* <textarea className="inputWishDiv"></textarea> */}
+      {/* 字数统计 */}
+
+      {/* <textarea className="inputWishDiv" type="text" value={text} onChange={inputWish}></textarea> */}
+      <textarea type="text" value={text} onChange={inputWish}></textarea>
+      <div className="wordinglimit">
+        {text.length}/{MAX_LENGTH}
+      </div>
+
       <div className="flower"></div>
-      <button className="printWish" onClick={printWish}>
+
+      {/* ChatGPT */}
+      <ChatGPT
+        className="ChatGPTbtn"
+        label="没有头绪？问问ChatGPT吧"
+        onClick={ChatGPTPrint}
+      />
+
+      {/* <button className="printWish" onClick={printWish}>
         打印愿望
-      </button>
+      </button> */}
+      {/* 按键特效 */}
+      <Button
+        variant="contained"
+        color="green"
+        className="printWish"
+        onClick={printWish}
+      >
+        <span className="btnPrintWording">打印愿望</span>
+      </Button>
 
       <div className="back" onClick={home}>
         返回
+      </div>
+      <div className="signing">
+        <div className="madeBy">Made with love by</div>
+        <div className="logo"></div>
       </div>
 
       {/* masking */}
@@ -131,9 +207,19 @@ export default function CustermoInput(props) {
       >
         <div class="title"></div>
         <div class="content">打印后请及时取走以免丢失</div>
-        <button class="i_know" onClick={printingWish}>
+        {/* <button class="i_know" onClick={printingWish}>
           知道了,开始打印
-        </button>
+        </button> */}
+
+        <Button
+          variant="contained"
+          color="green"
+          class="i_know"
+          onClick={printingWish}
+        >
+          <div> 知道了,开始打印</div>
+        </Button>
+
         <div class="later" onClick={closePrinting}>
           稍后再打印
         </div>
@@ -160,6 +246,51 @@ export default function CustermoInput(props) {
         <button class="backToWelcome" onClick={home}>
           返回主页面
         </button>
+      </div>
+
+      {/* 弹窗4 - ChatGPT */}
+      <div
+        class="pop4"
+        style={{ display: displayPrintForth ? "block" : "none" }}
+      >
+        <div className="leaf">
+          <img src={leaf} alt="leaf" />
+        </div>
+
+        <div className="closebtn">
+          <CloseButton onClick={closePrinting} />
+        </div>
+
+        {/* <div class="title"></div> */}
+        {/* <div class="leaf_left">
+          <img src={leaf_left} alt="leaf part1" />
+        </div>
+        <div class="leaf_right">
+          <img src={leaf_right} alt="leaf part2" />
+        </div>
+        <div class="leaf_down">
+          <img src={leaf_down} alt="leaf part13" />
+        </div> */}
+        {/* <div class="ChatGPTArea"><ChatGPTSelect /></div> */}
+        <div class="ChatGPTArea">{ChatGPTdata}</div>
+        {/* <div class="ChatGPTArea"><ChatGPTDiv /></div> */}
+        {/* <button class="useitBtn" onClick={printingWish}>
+          <div class="useItWording">使用心愿</div>
+        </button> */}
+
+        {/* 按键特效 */}
+        <Button
+          variant="contained"
+          color="green"
+          class="useitBtn"
+          onClick={printingWish}
+        >
+          <div class="useItWording">使用心愿</div>
+        </Button>
+
+        <div class="anotherBtn" onClick={ChatGPTPrint}>
+          <div class="anotherWording">换一个</div>
+        </div>
       </div>
     </div>
   );

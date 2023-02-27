@@ -198,6 +198,8 @@ export const getWishArray = (str) => {
 
   if (checkChinese(str)) {
     array = str.split("，");
+    console.log("getWishArray");
+    console.log(array.length);
     if (array.length < 2) {
       array = splitBylength(str);
     }
@@ -217,20 +219,26 @@ export const splitBylength = (str) => {
   let cut = 10;
   let string = str;
   let temp = "";
+  console.log("splitBylength in");
   console.log(string.length);
-  while (string.length > cut) {
-    console.log(string);
-    // temp = subWish(string, cut * 2);
-    temp = string.substr(0, cut);
-    string = string.substr(temp.length, string.length);
-    array.push(temp);
-    if (string.length <= cut) {
-      array.push(string);
-      break;
+  console.log(string);
+  if (string.length <= cut) {
+    array.push(string);
+  } else {
+    while (string.length > cut) {
+      console.log(string);
+      // temp = subWish(string, cut * 2);
+      temp = string.substr(0, cut);
+      string = string.substr(temp.length, string.length);
+      array.push(temp);
+      if (string.length <= cut) {
+        array.push(string);
+        break;
+      }
     }
   }
-
-  console.log(array);
+  console.log(array[0]);
+  console.log("splitBylength out");
   return array;
 };
 
