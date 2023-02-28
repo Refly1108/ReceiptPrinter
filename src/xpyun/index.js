@@ -92,7 +92,7 @@ export const PrinterData = async (data) => {
   );
   // let result = { code: 0 };
   console.log(result);
-  if (result.code === 0) {
+  if (result.code == 0) {
     return true;
   } else {
     return false;

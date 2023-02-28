@@ -5,7 +5,7 @@ const config = {
     getSN: "http://localhost:3001/sn",
     getuserinfo: "http://39.108.114.45:3001/gettoken/",
   },
-  networkprinter: true,
+  networkprinter: "network",
   wxurl: {
     // access_token: "https://api.weixin.qq.com/sns/oauth2/access_token?",
     access_token: "/test/sns/oauth2/access_token?",

@@ -39,15 +39,13 @@
   scrollbar-width: none;
   overflow: hidden;
   color: #444444;
-  max-height: calc(1.5em * 8);
 }
 .inputBackground .wordinglimit {
   /* 9/64 */
   position: absolute;
-  width: 34px;
   height: 19px;
-  right: 16vw;
-  top: 55vh;
+  right: 15vw;
+  bottom: 40vh;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -64,10 +62,9 @@
   cursor: pointer;
   text-decoration: none;
   position: absolute;
-  width: 200px;
   height: 20px;
   margin-left: 13vw;
-  bottom: 35vh;
+  bottom: 34vh;
   font-family: 'PingFang HK';
   font-style: normal;
   font-weight: 400;
@@ -106,7 +103,7 @@
 }
 .inputBackground .printWish .btnPrintWording {
   /* 打印愿望 */
-  width: 100px;
+  width: 150px;
   height: 25px;
   font-family: 'PingFang HK';
   font-style: normal;
@@ -118,9 +115,9 @@
 }
 .inputBackground .back {
   position: absolute;
-  width: 36px;
+  width: 60px;
   height: 25px;
-  bottom: 16vh;
+  bottom: 15.5vh;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "PingFang HK";
@@ -147,68 +144,60 @@
   left: 0;
   right: 0;
   margin: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: #fff;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  width: 302px;
-  height: 387px;
-}
-.inputBackground .pop1 .title {
-  background-image: url("../../resource/Group4.png");
-  background-size: 100% 100%;
-  width: 162px;
-  height: 77px;
-  line-height: 57px;
-  text-align: center;
-  font-size: 18px;
-  margin-left: 70px;
-  margin-top: 70px;
+  width: 323px;
+  height: 300px;
 }
 .inputBackground .pop1 .content {
-  margin: 0 auto;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 36px;
-  /* or 180% */
-  color: #333333;
-  line-height: 20px;
-  text-align: center;
+  position: absolute;
+  width: 283px;
   height: 72px;
-  width: 160px;
-  padding-top: 40px;
-  padding-left: 21px;
-  padding-right: 21px;
+  left: 50px;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px;
+  text-align: center;
+  max-width: 225px;
+  max-height: 4.3em;
+  font-size: 20px;
+  font-family: 'PingFang HK';
+  line-height: 36px;
+  text-overflow: ellipsis;
+  color: #333333;
 }
 .inputBackground .pop1 .i_know {
   box-sizing: border-box;
+  text-align: center;
   font-size: 16px;
-  line-height: 46px;
-  width: 266px;
+  width: 271px;
   height: 50px;
-  margin-left: 20px;
-  background: #ee8839;
+  margin-top: 170px;
+  margin-left: 26px;
   border-radius: 10px;
-  border: #ffffff;
+  background: #0F3A60;
   font-family: "Roboto";
   font-style: normal;
+  line-height: 19px;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  text-align: center;
-  color: #ffffff;
+  /* identical to box height */
+  color: #FFFFFF;
 }
 .inputBackground .pop1 .later {
-  font-family: "Roboto";
+  line-height: 23px;
+  margin-top: 3vh;
+  text-align: center;
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  text-align: center;
-  color: #ee8839;
-  margin-top: 20px;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #0F3A60;
 }
 .inputBackground .pop2 {
   width: 80%;
@@ -218,41 +207,42 @@
   left: 0;
   right: 0;
   margin: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: #fff;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  width: 302px;
-  height: 387px;
-}
-.inputBackground .pop2 .title {
-  background-image: url("../../resource/Group4.png");
-  background-size: 100% 100%;
-  width: 162px;
-  height: 77px;
-  line-height: 57px;
-  text-align: center;
-  font-size: 18px;
-  margin-left: 70px;
-  margin-top: 70px;
+  width: 323px;
+  height: 300px;
 }
 .inputBackground .pop2 .loading {
-  background-image: url("../../resource/printing.png");
-  background-size: 100% 100%;
-  width: 140px;
-  height: 20px;
+  position: absolute;
+  width: 283px;
+  height: 72px;
+  left: 50px;
+  top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px;
   text-align: center;
-  margin-left: 80px;
-  margin-top: 30px;
+  max-width: 225px;
+  max-height: 4.3em;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'PingFang HK';
+  line-height: 36px;
+  text-overflow: ellipsis;
+  color: #333333;
 }
 .inputBackground .pop2 .printing {
   background-image: url("../../resource/Loading.png");
   background-size: 100% 100%;
   width: 162px;
-  height: 5px;
-  text-align: center;
-  margin-left: 70px;
-  margin-top: 20px;
+  height: 8px;
+  width: 160.09px;
+  height: 5.34px;
+  margin-left: 83px;
+  margin-top: 160px;
 }
 .inputBackground .pop3 {
   width: 80%;
@@ -262,58 +252,48 @@
   left: 0;
   right: 0;
   margin: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: #fff;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  width: 302px;
-  height: 387px;
-}
-.inputBackground .pop3 .title {
-  background-image: url("../../resource/finish.png");
-  background-size: 100% 100%;
-  width: 162px;
-  height: 77px;
-  line-height: 57px;
-  text-align: center;
-  font-size: 18px;
-  margin-left: 70px;
-  margin-top: 70px;
+  width: 323px;
+  height: 280px;
 }
 .inputBackground .pop3 .content {
-  margin: 0 auto;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 36px;
-  /* or 180% */
-  color: #333333;
-  line-height: 20px;
-  text-align: center;
+  position: absolute;
+  width: 283px;
   height: 72px;
-  width: 160px;
-  padding-top: 40px;
-  padding-left: 21px;
-  padding-right: 21px;
+  left: 50px;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px;
+  text-align: center;
+  max-width: 225px;
+  max-height: 4.3em;
+  font-size: 20px;
+  font-family: 'PingFang HK';
+  line-height: 36px;
+  text-overflow: ellipsis;
+  color: #333333;
 }
 .inputBackground .pop3 .backToWelcome {
   box-sizing: border-box;
+  text-align: center;
   font-size: 16px;
-  line-height: 46px;
-  width: 266px;
+  width: 271px;
   height: 50px;
-  margin-left: 20px;
-  background: #ee8839;
+  margin-top: 170px;
+  margin-left: 26px;
   border-radius: 10px;
-  border: #ffffff;
+  background: #0F3A60;
   font-family: "Roboto";
   font-style: normal;
+  line-height: 19px;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  text-align: center;
-  color: #ffffff;
+  /* identical to box height */
+  color: #FFFFFF;
 }
 .inputBackground .pop4 {
   width: 80%;
@@ -332,17 +312,6 @@
   height: 330px;
   background: #FFFFFF;
   border-radius: 20px;
-}
-.inputBackground .pop4 .title {
-  background-image: url("../../resource/Group4.png");
-  background-size: 100% 100%;
-  width: 162px;
-  height: 77px;
-  line-height: 57px;
-  text-align: center;
-  font-size: 18px;
-  margin-left: 70px;
-  margin-top: 70px;
 }
 .inputBackground .pop4 .randomWish {
   margin: 0 auto;
@@ -424,7 +393,7 @@
 }
 .inputBackground .pop4 .anotherBtn {
   line-height: 23px;
-  margin-top: 25px;
+  margin-top: 1.8vh;
   text-align: center;
 }
 .inputBackground .pop4 .anotherBtn .anotherWording {
@@ -455,32 +424,35 @@
   max-height: 100%;
 }
 .inputBackground .signing {
-  /*container区域*/
   display: flex;
   /* 使用flex布局 */
   justify-content: center;
   /* 水平居中 */
-  align-items: center;
-  /* 垂直居中 */
+  align-items: flex-end;
+  /* 垂直对齐底部 */
+  /* 距离底部6vh */
 }
 .inputBackground .signing .madeBy {
   /*文字区域*/
   position: absolute;
-  font-size: 11pt;
-  left: 20vw;
+  width: 100px;
+  bottom: 5.5vh;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
   text-align: center;
-  width: 130px;
-  bottom: 7vh;
+  padding-right: 83px;
 }
 .inputBackground .signing .logo {
   /*logo区域*/
-  background-image: url("../../resource/logo1.0.png");
   position: absolute;
   background-repeat: no-repeat;
-  width: 20vw;
-  left: 56vw;
-  height: 25px;
-  bottom: 7vh;
+  width: 80px;
+  height: 26px;
+  bottom: 6vh;
+  padding-left: 83px;
 }
 .inputBackground .close-button {
   background-color: transparent;
@@ -488,5 +460,5 @@
   border: none;
   font-size: 20px;
   top: 1vh;
-  right: 1vw;
+  right: 1vh;
 }

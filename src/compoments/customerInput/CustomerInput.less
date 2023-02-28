@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   background-size: cover;
+  //background-size: contain;
   background-repeat: no-repeat;
 
   .inputWishTitle {
@@ -25,6 +26,57 @@
     color: #0F3A60;
   }
 
+  // .inputWishDiv {
+  //   position: absolute;
+  //   box-sizing: border-box;
+  //   margin-top: 31vh;
+  //   margin-left: 13vw;
+
+  // textarea {
+  //   box-sizing: border-box;
+
+  //   width: 100%;
+  //   height: 100%;
+  //   resize: none;
+  //   //margin-top: 240px;
+  //   margin-top: 31vh;
+  //   margin-left: 13vw;
+  //   background: rgba(255, 255, 255, 0.74);
+  //   border: 1px solid #fbd632;
+  //   border-radius: 10px;
+  //   font-family: "PingFang HK";
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   font-size: 20px;
+  //   line-height: 28px;
+  //   scrollbar-width: none;
+  //   overflow: hidden;
+  //   color: #444444;
+  //   max-height: calc(1.5em * 8);
+  // }
+
+
+  // .wordinglimit {
+  //   /* 9/64 */
+  //   position: absolute;
+  //   //width: 34px;
+  //   height: 19px;
+  //   right: 15vw;
+  //   bottom: 41vh;
+  //   font-family: 'Roboto';
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   font-size: 16px;
+  //   line-height: 19px;
+  //   /* identical to box height */
+
+  //   //text-align: center;
+  //   color: #0F3A60;
+  // }
+
+
+  // }
+
   textarea {
     box-sizing: border-box;
     position: absolute;
@@ -45,37 +97,17 @@
     scrollbar-width: none;
     overflow: hidden;
     color: #444444;
-    max-height: calc(1.5em * 8);
+    //max-height: calc(1.5em * 8);
   }
 
-
-  // .inputWishDiv {
-  //   box-sizing: border-box;
-  //   position: absolute;
-  //   width: 286px;
-  //   height: 235px;
-  //   resize: none;
-  //   margin-top: 240px;
-  //   margin-left: 52px;
-  //   background: rgba(255, 255, 255, 0.74);
-  //   border: 1px solid #fbd632;
-  //   border-radius: 10px;
-  //   font-family: "PingFang HK";
-  //   font-style: normal;
-  //   font-weight: 400;
-  //   font-size: 20px;
-  //   line-height: 28px;
-  //   color: #444444;
-
-  // }
 
   .wordinglimit {
     /* 9/64 */
     position: absolute;
-    width: 34px;
+    //width: 34px;
     height: 19px;
-    right: 16vw;
-    top: 55vh;
+    right: 15vw;
+    bottom: 40vh;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -96,10 +128,10 @@
     cursor: pointer;
     text-decoration: none;
     position: absolute;
-    width: 200px;
+    //width: 200px;
     height: 20px;
     margin-left: 13vw;
-    bottom: 35vh;
+    bottom: 34vh;
     font-family: 'PingFang HK';
     font-style: normal;
     font-weight: 400;
@@ -144,7 +176,7 @@
 
       /* 打印愿望 */
 
-      width: 100px;
+      width: 150px;
       height: 25px;
 
       font-family: 'PingFang HK';
@@ -160,9 +192,9 @@
 
   .back {
     position: absolute;
-    width: 36px;
+    width: 60px;
     height: 25px;
-    bottom: 16vh;
+    bottom: 15.5vh;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "PingFang HK";
@@ -192,77 +224,144 @@
     left: 0;
     right: 0;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     background-color: #fff;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    width: 302px;
-    height: 387px;
+    width: 323px;
+    height: 300px;
 
-    .title {
-      background-image: url("../../resource/Group4.png");
-      background-size: 100% 100%;
-      width: 162px;
-      height: 77px;
-      line-height: 57px;
-      text-align: center;
-      font-size: 18px;
-      margin-left: 70px;
-      margin-top: 70px;
-    }
+    // .title {
+    //   background-image: url("../../resource/Group4.png");
+    //   background-size: 100% 100%;
+    //   width: 162px;
+    //   height: 77px;
+    //   line-height: 57px;
+    //   text-align: center;
+    //   font-size: 18px;
+    //   margin-left: 70px;
+    //   margin-top: 70px;
+    // }
 
+    // .content {
+    //   margin: 0 auto;
+    //   font-family: "Roboto";
+    //   font-style: normal;
+    //   font-weight: 400;
+    //   font-size: 20px;
+    //   line-height: 36px;
+    //   /* or 180% */
+
+    //   text-align: center;
+
+    //   color: #333333;
+    //   line-height: 20px;
+    //   text-align: center;
+    //   height: 72px;
+    //   width: 160px;
+    //   padding-top: 40px;
+    //   padding-left: 21px;
+    //   padding-right: 21px;
+    // }
+
+    // .i_know {
+    //   box-sizing: border-box;
+    //   text-align: center;
+    //   font-size: 16px;
+    //   line-height: 46px;
+    //   width: 266px;
+    //   height: 50px;
+    //   margin-left: 20px;
+    //   background: #ee8839;
+    //   border-radius: 10px;
+    //   border: #ffffff;
+
+    //   font-family: "Roboto";
+    //   font-style: normal;
+    //   font-weight: 400;
+    //   font-size: 20px;
+    //   line-height: 23px;
+    //   text-align: center;
+    //   color: #ffffff;
+    // }
+
+    // .later {
+    //   font-family: "Roboto";
+    //   font-style: normal;
+    //   font-weight: 400;
+    //   font-size: 20px;
+    //   line-height: 23px;
+    //   text-align: center;
+    //   color: #ee8839;
+    //   margin-top: 20px;
+    // }
     .content {
-      margin: 0 auto;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 36px;
-      /* or 180% */
-
-      text-align: center;
-
-      color: #333333;
-      line-height: 20px;
-      text-align: center;
+      position: absolute;
+      width: 283px;
       height: 72px;
-      width: 160px;
-      padding-top: 40px;
-      padding-left: 21px;
-      padding-right: 21px;
+      left: 50px;
+      top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px;
+      //border: 1px solid #ccc;
+
+      text-align: center;
+      max-width: 225px;
+      max-height: 4.3em;
+      font-size: 20px;
+      font-family: 'PingFang HK';
+      line-height: 36px;
+      text-overflow: ellipsis;
+      color: #333333;
     }
 
     .i_know {
       box-sizing: border-box;
       text-align: center;
       font-size: 16px;
-      line-height: 46px;
-      width: 266px;
+      line-height: 19px;
+      width: 271px;
       height: 50px;
-      margin-left: 20px;
-      background: #ee8839;
+      margin-top: 170px;
+      margin-left: 26px;
+      //left: 0vw;
       border-radius: 10px;
-      border: #ffffff;
+      background: #0F3A60;
 
       font-family: "Roboto";
       font-style: normal;
+      line-height: 19px;
       font-weight: 400;
-      font-size: 20px;
-      line-height: 23px;
-      text-align: center;
-      color: #ffffff;
+      /* identical to box height */
+
+      color: #FFFFFF;
+
+
+
     }
 
     .later {
-      font-family: "Roboto";
+      //position: absolute;
+      line-height: 23px;
+      margin-top: 3vh;
+      text-align: center;
+
+      //left: auto;
+      //top: 220px;
+      font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
-      font-size: 20px;
-      line-height: 23px;
-      text-align: center;
-      color: #ee8839;
-      margin-top: 20px;
+      font-size: 16px;
+      line-height: 19px;
+      /* identical to box height */
+
+      color: #0F3A60;
+
+
     }
+
   }
 
   .pop2 {
@@ -273,43 +372,58 @@
     left: 0;
     right: 0;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     background-color: #fff;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    width: 302px;
-    height: 387px;
+    width: 323px;
+    height: 300px;
 
-    .title {
-      background-image: url("../../resource/Group4.png");
-      background-size: 100% 100%;
-      width: 162px;
-      height: 77px;
-      line-height: 57px;
-      text-align: center;
-      font-size: 18px;
-      margin-left: 70px;
-      margin-top: 70px;
-    }
+    // .title {
+    //   background-image: url("../../resource/Group4.png");
+    //   background-size: 100% 100%;
+    //   width: 162px;
+    //   height: 77px;
+    //   line-height: 57px;
+    //   text-align: center;
+    //   font-size: 18px;
+    //   margin-left: 70px;
+    //   margin-top: 70px;
+    // }
 
     .loading {
-      background-image: url("../../resource/printing.png");
-      background-size: 100% 100%;
-      width: 140px;
-      height: 20px;
+      position: absolute;
+      width: 283px;
+      height: 72px;
+      left: 50px;
+      top: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px;
+      //border: 1px solid #ccc;
+
       text-align: center;
-      margin-left: 80px;
-      margin-top: 30px;
+      max-width: 225px;
+      max-height: 4.3em;
+      font-size: 20px;
+      font-weight: 400;
+      font-family: 'PingFang HK';
+      line-height: 36px;
+      text-overflow: ellipsis;
+      color: #333333;
+
     }
 
     .printing {
       background-image: url("../../resource/Loading.png");
       background-size: 100% 100%;
       width: 162px;
-      height: 5px;
-      text-align: center;
-      margin-left: 70px;
-      margin-top: 20px;
+      height: 8px;
+      width: 160.09px;
+      height: 5.34px;
+      margin-left: 83px;
+      margin-top: 160px;
     }
   }
 
@@ -321,65 +435,70 @@
     left: 0;
     right: 0;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     background-color: #fff;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    width: 302px;
-    height: 387px;
+    width: 323px;
+    height: 280px;
 
-    .title {
-      background-image: url("../../resource/finish.png");
-      background-size: 100% 100%;
-      width: 162px;
-      height: 77px;
-      line-height: 57px;
-      text-align: center;
-      font-size: 18px;
-      margin-left: 70px;
-      margin-top: 70px;
-    }
+    // .title {
+    //   background-image: url("../../resource/finish.png");
+    //   background-size: 100% 100%;
+    //   width: 162px;
+    //   height: 77px;
+    //   line-height: 57px;
+    //   text-align: center;
+    //   font-size: 18px;
+    //   margin-left: 70px;
+    //   margin-top: 70px;
+    // }
 
     .content {
-      margin: 0 auto;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 36px;
-      /* or 180% */
-
-      text-align: center;
-
-      color: #333333;
-      line-height: 20px;
-      text-align: center;
+      position: absolute;
+      width: 283px;
       height: 72px;
-      width: 160px;
-      padding-top: 40px;
-      padding-left: 21px;
-      padding-right: 21px;
+      left: 50px;
+      top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 1px;
+      //border: 1px solid #ccc;
+
+      text-align: center;
+      max-width: 225px;
+      max-height: 4.3em;
+      font-size: 20px;
+      font-family: 'PingFang HK';
+      line-height: 36px;
+      text-overflow: ellipsis;
+      color: #333333;
     }
 
     .backToWelcome {
       box-sizing: border-box;
       text-align: center;
       font-size: 16px;
-      line-height: 46px;
-      width: 266px;
+      line-height: 19px;
+      width: 271px;
       height: 50px;
-      margin-left: 20px;
-      background: #ee8839;
+      margin-top: 170px;
+      margin-left: 26px;
+      //left: 0vw;
       border-radius: 10px;
-      border: #ffffff;
+      background: #0F3A60;
 
       font-family: "Roboto";
       font-style: normal;
+      line-height: 19px;
       font-weight: 400;
-      font-size: 20px;
-      line-height: 23px;
-      text-align: center;
-      color: #ffffff;
+      /* identical to box height */
+
+      color: #FFFFFF;
+
+
+
     }
 
   }
@@ -406,18 +525,6 @@
 
     background: #FFFFFF;
     border-radius: 20px;
-
-    .title {
-      background-image: url("../../resource/Group4.png");
-      background-size: 100% 100%;
-      width: 162px;
-      height: 77px;
-      line-height: 57px;
-      text-align: center;
-      font-size: 18px;
-      margin-left: 70px;
-      margin-top: 70px;
-    }
 
     .randomWish {
       text-align: center;
@@ -584,7 +691,7 @@
     .anotherBtn {
       //position: absolute;
       line-height: 23px;
-      margin-top: 25px;
+      margin-top: 1.8vh;
       text-align: center;
 
       //left: auto;
@@ -626,53 +733,213 @@
     max-height: 100%;
   }
 
+  //version 1
+  // .signing {
+  //   /*container区域*/
+  //   display: flex;
+  //   /* 使用flex布局 */
+  //   justify-content: center;
+  //   /* 水平居中 */
 
+
+  //   .madeBy {
+  //     /*文字区域*/
+  //     position: absolute;
+  //     display: inline-block;
+  //     font-size: 10px;
+  //     left: 110px;
+  //     text-align: center;
+  //     //display: block;
+  //     width: 90px;
+
+
+  //     //padding-right: 5vw;
+  //     bottom: 6vh;
+
+  //   }
+
+  //   .logo {
+  //     /*logo区域*/
+  //     background-image: url("../../resource/logo1.0.png");
+  //     position: absolute;
+  //     background-repeat: no-repeat;
+  //     display: inline-block;
+  //     //background-size: 100% 50%;
+  //     width: 75px;
+  //     right: 110px;
+  //     height: 25px;
+  //     bottom: 6vh;
+
+  //   }
+
+  // }
+
+  //version 2 
 
   .signing {
-    /*container区域*/
+
+    //text-align: center;
     display: flex;
     /* 使用flex布局 */
     justify-content: center;
     /* 水平居中 */
-    align-items: center;
-    /* 垂直居中 */
-
+    align-items: flex-end;
+    /* 垂直对齐底部 */
+    //padding-bottom: 6vh;
+    /* 距离底部6vh */
 
     .madeBy {
       /*文字区域*/
       position: absolute;
-      font-size: 11pt;
-      left: 20vw;
-      text-align: center;
+      //display: inline-block;
+      //
+      //vertical-align: middle;
+      //display: right;
+      //left: 20vw;
+      //text-align: center;
       //display: block;
-      width: 130px;
+      width: 100px;
 
       //padding-right: 5vw;
-      bottom: 7vh;
+      bottom: 5.5vh;
+
+      font-family: 'Helvetica';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 11px;
+      text-align: center;
+      padding-right: 83px;
 
     }
 
     .logo {
       /*logo区域*/
-      background-image: url("../../resource/logo1.0.png");
+      //background-image: url("../../resource/logo1.0.png");
       position: absolute;
       background-repeat: no-repeat;
+      //display: inline-block;
+      //vertical-align: middle;
+      //display: right;
       //background-size: 100% 50%;
-      width: 20vw;
-      left: 56vw;
-      height: 25px;
-      bottom: 7vh;
+      width: 80px;
+      //left: 56vw;
+      height: 26px;
+      bottom: 6vh;
+      padding-left: 83px;
 
     }
-
   }
 
+  //version 3
+
+  //   <div class="container">
+  //   <div class="text">
+  //     <p>这里是一段文字</p >
+  //   </div>
+  //   <div class="image">
+  //     < img src="your-image-source" alt="图片" >
+  //   </div>
+  // </div>
+
+
+
+  // .signing {
+  //   /*container区域*/
+  //   display: flex;
+  //   /* 使用flex布局 */
+  //   justify-content: center;
+  //   /* 水平居中 */
+
+
+  //   .madeBy {
+  //     /*文字区域*/
+  //     position: absolute;
+  //     display: inline-block;
+  //     font-size: 10px;
+  //     left: 110px;
+  //     text-align: center;
+  //     //display: block;
+  //     width: 90px;
+
+
+  //     //padding-right: 5vw;
+  //     bottom: 6vh;
+
+  //   }
+
+  //   .logo {
+  //     /*logo区域*/
+  //     background-image: url("../../resource/logo1.0.png");
+  //     position: absolute;
+  //     background-repeat: no-repeat;
+  //     display: inline-block;
+  //     //background-size: 100% 50%;
+  //     width: 75px;
+  //     right: 110px;
+  //     height: 25px;
+  //     bottom: 6vh;
+
+  //   }
+
+  // }
+
+  // .signing {
+  //   display: flex;
+  //   /* 使用flex布局 */
+  //   justify-content: center;
+  //   /* 水平居中 */
+  //   align-items: flex-end;
+  //   /* 垂直对齐底部 */
+  //   padding-bottom: 6vh;
+  //   /* 距离底部6vh */
+  // }
+
+  // .madeby {
+  //   padding-right: 10px;
+  //   /* 右边距，避免与图片重叠 */
+  // }
+
+  // .logo {
+  //   padding-left: 10px;
+  //   /* 左边距，避免与文字重叠 */
+  // }
+
+  // .text p {
+  //   margin: 0;
+  //   /* 清除p元素的默认margin */
+  // }
+
   .close-button {
+    //background-image: url("../../resource/CloseBtn.png");
     background-color: transparent;
     position: absolute;
     border: none;
     font-size: 20px;
     top: 1vh;
-    right: 1vw;
+    right: 1vh;
   }
+
+  // .CloseBtn {
+  //   position: relative;
+  //   width: 45px;
+  //   height: 45px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // .CloseBtn img {
+  //   position: absolute;
+  //   text-align: center;
+  //   top: 6vh;
+  //   left: 50%;
+  //   transform: translate(260%, -50%);
+  //   max-width: 100%;
+  //   max-height: 100%;
+  // }
+
+
+
+
 }

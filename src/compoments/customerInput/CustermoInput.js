@@ -5,8 +5,12 @@ import config from "../../config/config";
 import "./CustomerInput.css";
 import ChatGPT from "../ChatGPT";
 import leaf from "../../resource/leaf.PNG";
+import logo from "../../resource/logo1.0.png";
 import { postToServer } from "../../fetch/index";
+import { getQueryString } from "../../xpyun/util/util";
+
 import leaf_right from "../../resource/leaf_right.png";
+import Closebtn from "../../resource/CloseBtn.png";
 import leaf_down from "../../resource/leaf_down.png";
 import RandomWishSelector from "../ChatGPT/components/RandomWishSelect";
 import {
@@ -16,6 +20,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
+  Container,
 } from "@material-ui/core";
 import { getRandomWish } from "../../xpyun/util/util";
 export default function CustermoInput(props) {
@@ -39,7 +44,7 @@ export default function CustermoInput(props) {
   //字数统计
   // const [inputWishValue, setInputWishValue] = useState('');
 
-  const MAX_LENGTH = 64;
+  const MAX_LENGTH = 70;
   function inputWish(event) {
     let newText = event.target.value;
     if (newText.length <= MAX_LENGTH) {
@@ -60,6 +65,18 @@ export default function CustermoInput(props) {
     return <ChatGPTDiv selectedData={selectedData} />;
   }
 
+  //Cancel to use ChatGPT
+  function ChatGPTCancel() {
+    let wish = getRandomWish();
+    setChatGPTData(wish);
+    //setText(wish);
+    setText("");
+
+    console.log("selectedData:" + selectedData);
+    console.log("ChatGPTdata:" + ChatGPTdata);
+
+    return <ChatGPTDiv selectedData={selectedData} />;
+  }
   function ChatGPTDiv(props) {
     return <div>{props.selectedData}</div>;
   }
@@ -67,7 +84,7 @@ export default function CustermoInput(props) {
   function CloseButton(props) {
     return (
       <button className="close-button" onClick={props.onClick}>
-        X
+        <img src={Closebtn} alt="Close_button" />
       </button>
     );
   }
@@ -109,6 +126,15 @@ export default function CustermoInput(props) {
     //打印逻辑
   };
 
+  const cancelPrinting = () => {
+    setDisplayMask(false);
+    setDisplayPrintFirst(false);
+    setDisplayPrintSecond(false);
+    setDisplayPrintThird(false);
+    setDisplayPrintForth(false);
+    ChatGPTCancel();
+    //打印逻辑
+  };
   const ChatGPTPrint = () => {
     setDisplayMask(true);
     setDisplayPrintFirst(false);
@@ -125,7 +151,8 @@ export default function CustermoInput(props) {
   const submit = async () => {
     setProcess(true);
     let result;
-    if (config.networkprinter) {
+    let type = getQueryString("type");
+    if (!type) {
       result = await PrinterData({
         name: props.username,
         text: text,
@@ -159,11 +186,12 @@ export default function CustermoInput(props) {
       {/* 字数统计 */}
 
       {/* <textarea className="inputWishDiv" type="text" value={text} onChange={inputWish}></textarea> */}
+      {/* <Container className="inputWishDiv"> */}
       <textarea type="text" value={text} onChange={inputWish}></textarea>
       <div className="wordinglimit">
         {text.length}/{MAX_LENGTH}
       </div>
-
+      {/* </Container> */}
       <div className="flower"></div>
 
       {/* ChatGPT */}
@@ -190,7 +218,12 @@ export default function CustermoInput(props) {
         返回
       </div>
       <div className="signing">
-        <div className="madeBy">Made with love by</div>
+        <div className="madeBy">
+          <p>Made with love by</p>
+        </div>
+        <div class="logo">
+          <img src={logo} alt="logo" />
+        </div>
         <div className="logo"></div>
       </div>
 
@@ -203,10 +236,11 @@ export default function CustermoInput(props) {
       {/* 弹窗1 */}
       <div
         class="pop1"
+        // class="pop1"
         style={{ display: displayPrintFirst ? "block" : "none" }}
       >
-        <div class="title"></div>
-        <div class="content">打印后请及时取走以免丢失</div>
+        {/* <div class="title"></div> */}
+        <div class="content">打印后请及时取走<br />以免丢失</div>
         {/* <button class="i_know" onClick={printingWish}>
           知道了,开始打印
         </button> */}
@@ -217,7 +251,7 @@ export default function CustermoInput(props) {
           class="i_know"
           onClick={printingWish}
         >
-          <div> 知道了,开始打印</div>
+          <div> 知道了，开始打印</div>
         </Button>
 
         <div class="later" onClick={closePrinting}>
@@ -230,8 +264,8 @@ export default function CustermoInput(props) {
         class="pop2"
         style={{ display: displayPrintSecond ? "block" : "none" }}
       >
-        <div class="title"></div>
-        <div class="loading"></div>
+        {/* <div class="title"></div> */}
+        <div class="loading">打印中，请稍等</div>
         <div class="printing"></div>
       </div>
 
@@ -240,11 +274,11 @@ export default function CustermoInput(props) {
         class="pop3"
         style={{ display: displayPrintThird ? "block" : "none" }}
       >
-        <div class="title"></div>
-        <div class="content">你已成功许下心愿请及时取走</div>
+        {/* <div class="title"></div> */}
+        <div class="content">你已成功许下心愿<br />请及时取走</div>
 
         <button class="backToWelcome" onClick={home}>
-          返回主页面
+          返回首页
         </button>
       </div>
 
@@ -258,7 +292,9 @@ export default function CustermoInput(props) {
         </div>
 
         <div className="closebtn">
-          <CloseButton onClick={closePrinting} />
+          {/* <CloseButton onClick={closePrinting} /> */}
+          <CloseButton onClick={cancelPrinting} />
+
         </div>
 
         {/* <div class="title"></div> */}
@@ -283,7 +319,8 @@ export default function CustermoInput(props) {
           variant="contained"
           color="green"
           class="useitBtn"
-          onClick={printingWish}
+          // onClick={printingWish}
+          onClick={closePrinting}
         >
           <div class="useItWording">使用心愿</div>
         </Button>
