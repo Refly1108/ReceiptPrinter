@@ -1,7 +1,6 @@
 import config from "../config/config";
 import { fetchRequest } from "../fetch";
-const APPID = "wxa8f21527ef5c97c6";
-const SECRET = "6c605ebc9bd0faf042098b49011ed60c";
+
 const GRANT_TYPE = "authorization_code";
 
 //scope为snsapi_base：
